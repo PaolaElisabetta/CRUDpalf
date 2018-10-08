@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+</head>
+<body>
+<center><h1>Pagina Gestione Task, Admin</h1></center>
+<center>
+<form th:action="@{/taskTest}" method="post">
+			<div>
+				<label> Description <input type="text" name="description"
+					placeholder="Description" />
+				</label> <label> Type <input type="text" name="type"
+					placeholder="Father/Son" />
+				</label> <label> Father <input type="text" name="father"
+					placeholder="Insert id Father" />
+					<label> User <input type="text" name="user"
+					placeholder="username" />
+					
+				</label> <input type="submit" value="Add Task" />
+			</div>
+		</form>
+		</center>
+		<br>
+		<center>
+		<h3 style="color:red;" th:text="${error}"></h3>
+		</center>
+			<center>
+		<h3 style="color:green;" th:text="${message}"></h3>
+		</center>
+		<br>
+		<center>
+		<label>
+		<form action="/task">
+   	    <input type="submit" value="List Task" />
+		</form>
+		<br>
+		<form action="/user">
+   	    <input type="submit" value="List User" />
+		</form>
+			<br>
+		<form action="/logout">
+   	    <input type="submit" value="LogOut" />
+		</form>
+		</label>
+		</center>
+		
+		
+		
+</body>
+</html>

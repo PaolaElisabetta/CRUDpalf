@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+</head>
+<body>
+	<center>
+		<h1>Pagina Gestione Task, User</h1>
+	</center>
+
+	<br>
+	<center>
+		<h3 style="color: red;" th:text="${error}"></h3>
+	</center>
+	<center>
+		<h3 style="color: green;" th:text="${message}"></h3>
+	</center>
+	<br>
+	<center>
+		<label>
+			<form action="/taskForUser">
+				<input type="submit" value="List Task" />
+			</form> <br>
+			<form action="/user">
+				<input type="submit" value="List User" />
+			</form> <br>
+			<form action="/logout">
+				<input type="submit" value="LogOut" />
+			</form>
+		</label>
+	</center>
+
+
+
+</body>
+</html>
