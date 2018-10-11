@@ -1,6 +1,8 @@
 package com.pccube.CRUDTest.entities;
 
 import java.util.ArrayList;
+
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,6 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -21,10 +27,16 @@ public class Task {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 		
+
 	@Column
+	@NotNull
+    @Size(min=1, max=30)
 	private String description;
 	
+	
 	@Column
+	@NotNull
+    @Size(min=1, max=30)
 	private String type;
 	
 	@OneToMany
@@ -64,7 +76,7 @@ public class Task {
 		return description;
 	}
 
-	public void setDescrizione(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 

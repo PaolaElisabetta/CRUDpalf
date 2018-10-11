@@ -5,48 +5,74 @@
 <title>Home</title>
 </head>
 <body>
-<center><h1>Pagina Gestione Task, Admin</h1></center>
-<center>
-<form th:action="@{/taskTest}" method="post">
-			<div>
-				<label> Description <input type="text" name="description"
-					placeholder="Description" />
-				</label> <label> Type <input type="text" name="type"
-					placeholder="Father/Son" />
-				</label> <label> Father <input type="text" name="father"
+
+	<div align="center">
+		<h1>Pagina Gestione Task, Admin</h1>
+
+
+	   <form th:action="@{/taskTest}" method="post" th:object="${task}">
+			
+		
+			
+			
+			<label>Description
+                  <input type="text" th:field="*{description}" />
+                  <p align="left" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+   			</label>
+							<br>				
+				</label> <label> Type <select name="type">
+						<option value="father">Father</option>
+						<option value="son">Son</option>
+				</select>
+				</label>
+					<br>		 <label> Father <input type="text" name="father"
 					placeholder="Insert id Father" />
-					<label> User <input type="text" name="user"
-					placeholder="username" />
-					
+				</label> 
+					<br>		<label> Username <select name="user">
+
+						<option value="-1" style="display: none">List Users</option> <%
+						int i = 1; %>
+						<tr th:each="user : ${users}">
+
+
+							<option th:text="${user.username}"></option>
+
+						</tr> <% i++; %>
+						</c:forEach>
+				</select>
+
+
 				</label> <input type="submit" value="Add Task" />
-			</div>
-		</form>
-		</center>
+		
+		
+     
+     </form>
 		<br>
-		<center>
-		<h3 style="color:red;" th:text="${error}"></h3>
-		</center>
-			<center>
-		<h3 style="color:green;" th:text="${message}"></h3>
-		</center>
+
+		<h3 style="color: red;" th:text="${error}"></h3>
+
+
+		<h3 style="color: green;" th:text="${message}"></h3>
+
 		<br>
-		<center>
-		<label>
+
 		<form action="/task">
-   	    <input type="submit" value="List Task" />
+			<input type="submit" value="List Task" />
 		</form>
 		<br>
 		<form action="/user">
-   	    <input type="submit" value="List User" />
+			<input type="submit" value="List User" />
 		</form>
-			<br>
+		<br>
 		<form action="/logout">
-   	    <input type="submit" value="LogOut" />
+			<input type="submit" value="LogOut" />
 		</form>
-		</label>
-		</center>
-		
-		
-		
+
+
+
+
+
+	</div>
+
 </body>
 </html>
