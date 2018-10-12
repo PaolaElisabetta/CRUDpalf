@@ -1,10 +1,10 @@
-package com.pccube.CRUDTest.entities;
+package com.pccube.crudtest.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-
-
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,15 +13,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
-public class Task {
+public class Task implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,7 +43,7 @@ public class Task {
     @Size(min=1, max=30)
 	private String type;
 	
-	@OneToMany
+	@OneToMany(cascade = {CascadeType.ALL})
 	private List<Task> children = new ArrayList<>();
 	
 		
@@ -54,7 +58,7 @@ public class Task {
 	//utente a cui viene assegnato il task
 	@ManyToOne
 	@JoinColumn(name = "username")
-	private User user_id;
+	private User userId;
 	
 	public Long getId() {
 		return id;
@@ -80,12 +84,12 @@ public class Task {
 		this.description = description;
 	}
 
-	public User getUser_id() {
-		return user_id;
+	public User getUserId() {
+		return userId;
 	}
 
-	public void setUser_id(User user_id) {
-		this.user_id = user_id;
+	public void setUserId(User userId) {
+		this.userId = userId;
 	}
 
 }

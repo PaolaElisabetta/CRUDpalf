@@ -1,14 +1,13 @@
-package com.pccube.CRUDTest;
+package com.pccube.crudtest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.pccube.CRUDTest.entities.User;
-import com.pccube.CRUDTest.entities.UserRepository;
+import com.pccube.crudtest.entities.User;
+import com.pccube.crudtest.entities.UserRepository;
 
 @Service
 public class UserDetailsServiceIMP implements UserDetailsService {
@@ -17,7 +16,7 @@ public class UserDetailsServiceIMP implements UserDetailsService {
 	UserRepository userRepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String username){
 
 		User user = userRepository.findByUsername(username);
 

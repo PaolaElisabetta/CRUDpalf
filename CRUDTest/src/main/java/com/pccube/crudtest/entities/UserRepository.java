@@ -1,4 +1,4 @@
-package com.pccube.CRUDTest.entities;
+package com.pccube.crudtest.entities;
 
 
 import org.springframework.data.repository.CrudRepository;
