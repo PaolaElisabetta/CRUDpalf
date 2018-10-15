@@ -38,6 +38,7 @@ public class User implements Serializable {
 	public User() {
 	}
 
+	
 	public User(String userName, String password, String type, List<Task> tasks) {
 		super();
 		this.username = userName;
